@@ -228,7 +228,7 @@ body {
     }
 
     .map-container {
-       
+       text-algin:center;
         height: 100%; /* Adjust to make the image smaller on smaller screens */
     }
 }
