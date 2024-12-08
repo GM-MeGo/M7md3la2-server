@@ -95,3 +95,119 @@ body {
     background-color: #dddddd1c;
     transition: 0.5s;
 }
+.marquee-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width of the screen */
+    height: 40px; /* Adjust as needed */
+    background-color: #f1f1f1;
+    overflow: hidden; /* Hide text outside the container */
+    display: flex;
+    align-items: center;
+    z-index: 9999; /* Ensure it's on top */
+}
+
+/* Moving text */
+.marquee {
+    display: inline-block;
+    white-space: nowrap;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Animation keyframes for RTL (right-to-left) */
+@keyframes marquee-rtl {
+    0% {
+        transform: translateX(-100%); /* Start off-screen on the left */
+    }
+    100% {
+        transform: translateX(100%); /* End off-screen on the right */
+    }
+}
+
+/* Animation keyframes for LTR (left-to-right) */
+@keyframes marquee-ltr {
+    0% {
+        transform: translateX(100%); /* Start off-screen on the right */
+    }
+    100% {
+        transform: translateX(-100%); /* End off-screen on the left */
+    }
+}
+.footer {
+    position: fixed; /* Always visible at the bottom */
+    bottom: 0;
+    left: 0;
+    width: 100%; /* Stretches across the full screen */
+    background-color: #111111ad; /* Dark background */
+    color: #fff; /* White text */
+    z-index: 9999; /* High z-index to stay above other elements */
+    padding: 10px 0;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for separation */
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-left{ 
+      flex: 1;
+    margin-left: 15%
+}
+.footer-center{ 
+      flex: 1;
+    margin: 0 5%;
+}
+.footer-right {
+    flex: 1;
+    margin-right: 15%;
+}
+
+.footer-left h3,
+.footer-right h3 {
+    font-size: 16px;
+    margin-bottom: 1%;
+    margin-top: 1%;
+}
+
+.footer-left p,
+.footer-center p,
+.footer-right p {
+    margin: 1% 0;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.footer-center {
+    text-align: center;
+}
+
+.footer-right a {
+    color: #4caf50; /* Highlighted link color */
+    
+    text-decoration: none;
+}
+
+.footer-right a:hover {
+    text-decoration: underline;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-left, .footer-center, .footer-right {
+        margin: 5% 0;
+    }
+}
