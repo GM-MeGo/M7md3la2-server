@@ -198,20 +198,21 @@ body {
 /* Responsiveness */
 @media (max-width: 768px) {
     .footer-container {
-        flex-direction: column;
-        text-align: center;
+     
+       
     }
 
     .footer-left, .footer-center, .footer-right {
-        margin: 5% 0;
+        margin: 1% 0;
+
     }
 
     .container {
-        grid-template-columns: 1fr;
+        
     }
 
     .map-container {
-        flex-direction: column;
+       
         height: 200px; /* Adjust to make the image smaller on smaller screens */
     }
 }
