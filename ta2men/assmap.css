@@ -194,54 +194,54 @@ body {
 .footer-right a:hover {
     text-decoration: underline;
 }
-
 /* Responsiveness */
-@media (min-width: 481px) and (max-width: 768px){
+@media (max-width: 480px) {
     .left-bar, .right-bar {
-       
-        padding: 0px;
-        display: contents;
+        padding: 10px; /* تقليل المسافة الداخلية */
+        display: block; /* جعل الأعمدة تتكدس عموديًا */
         flex-direction: unset;
         align-items: center;
-        overflow-y: hidden;
-        min-height: 0%;
+        overflow-y: auto; /* جعل العناوين قابلة للتصفح */
+        min-height: unset;
     }
+
     .right-bar h3 {
-        
-        font-size: 7px;
+        font-size: 12px; /* تقليل حجم العنوان */
+        margin-bottom: 10px;
     }
+
     .city-btn {
-        font-size: 3px;
-      margin: 0;
-      padding: 0;
-       
+        font-size: 14px; /* تقليل حجم النص */
+        padding: 8px; /* تقليل الحشو */
+        margin: 5px 0; /* تقليل الهوامش */
     }
-    .footer{
-        height: 50%
+
+    .footer {
+        height: 60px; /* جعل الفوتر أصغر */
+        font-size: 12px; /* تقليل حجم النص في الفوتر */
     }
-    .footer-left h3,
-.footer-right h3 {
-    font-size: 5px;
-    
-}
+
+    .footer-left h3, .footer-right h3 {
+        font-size: 14px;
+    }
+
     .footer-left p,
     .footer-center p,
-    .footer-right p 
-    {
-       
-        font-size: 2%;
-      
+    .footer-right p {
+        font-size: 10px; /* تقليل حجم النص */
+        line-height: 1.4;
     }
 
     .container {
-       width: auto;
-       height: auto;
+        width: 100%; /* جعل الحاوية تأخذ عرض الشاشة */
+        height: auto; /* السماح بتعديل الارتفاع تلقائيًا */
     }
 
     .map-container {
-       
-        height: 100%; /* Adjust to make the image smaller on smaller screens */
+        height: 200px; /* تقليل حجم الخريطة في الشاشات الصغيرة */
+        width: 100%;
     }
+
     .map-container img {
         max-width: 100%;
         max-height: 100%;
@@ -250,15 +250,14 @@ body {
         border: 2px solid #00ff62;
         border-radius: 5px;
     }
+
     #city-details {
-        font-size: 7px;
-        
-       
+        font-size: 12px; /* تقليل حجم النص في تفاصيل المدينة */
     }
-    
+
     #city-details:hover {
-        
-        font-size: 7px;
-      
+        font-size: 12px;
+        padding: 8px;
+        background-color: #dddddd1c;
     }
 }
