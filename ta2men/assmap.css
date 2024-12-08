@@ -230,7 +230,8 @@ body {
     }
 
     .container {
-       
+       width: auto;
+       height: auto;
     }
 
     .map-container {
@@ -243,6 +244,6 @@ body {
         width: auto;
         height: auto;
         border: 2px solid #00ff62;
-        border-radius: 10px;
+        border-radius: 5px;
     }
 }
