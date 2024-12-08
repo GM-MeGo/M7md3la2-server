@@ -208,6 +208,8 @@ body {
     }
     .city-btn {
         font-size: 5px;
+        padding: 0;
+        margin: 1%;
        
     }
     .footer-left h3,
