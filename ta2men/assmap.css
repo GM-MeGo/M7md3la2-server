@@ -214,7 +214,7 @@ body {
     }
     .footer-left h3,
 .footer-right h3 {
-    font-size: 10px;
+    font-size: 5px;
     
 }
     .footer-left p,
@@ -222,8 +222,8 @@ body {
     .footer-right p 
     {
        
-        font-size: 3%;
-        line-height: 1.6;
+        font-size: 2%;
+      
     }
 
     .container {
