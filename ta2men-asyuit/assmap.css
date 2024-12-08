@@ -5,7 +5,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #ffffff;
+    background-color: #020811;
     flex-direction: column;
 }
 
@@ -219,10 +219,15 @@ body {
     .footer {
         height: 60px; /* جعل الفوتر أصغر */
         font-size: 12px; /* تقليل حجم النص في الفوتر */
+        margin: 0;
+        padding: 0;
     }
 
     .footer-left h3, .footer-right h3 {
-        font-size: 14px;
+       
+        font-size: 12px; /* تقليل حجم النص في الفوتر */
+        margin: 0;
+        padding: 0;
     }
 
     .footer-left p,
@@ -230,6 +235,8 @@ body {
     .footer-right p {
         font-size: 10px; /* تقليل حجم النص */
         line-height: 1.4;
+          margin: 0;
+        padding: 0;
     }
 
     .container {
@@ -240,6 +247,9 @@ body {
     .map-container {
         height: 200px; /* تقليل حجم الخريطة في الشاشات الصغيرة */
         width: 100%;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
     }
 
     .map-container img {
