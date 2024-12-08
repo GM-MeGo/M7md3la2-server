@@ -6,18 +6,21 @@ body {
     align-items: center;
     height: 100vh;
     background-color: #020202;
+    flex-direction: column; /* Stack content vertically */
 }
 
+/* Main Container */
 .container {
     display: grid;
     grid-template-columns: 1fr 3fr 1fr;
     width: 90%;
-    height: 90%;
+    height: 80%; /* Adjust height for mobile */
     box-shadow: 0 0 15px rgba(12, 12, 12, 0.603);
     border-radius: 10px;
     overflow: hidden;
 }
 
+/* Sidebars */
 .left-bar, .right-bar {
     background-color: #3b39396c;
     padding: 20px;
@@ -27,13 +30,14 @@ body {
     overflow-y: auto;
 }
 
+/* Adjust margins for better mobile layout */
 .left-bar {
     border-right: 2px solid #ddd;
 }
 
 .right-bar {
     border-left: 2px solid #ddd;
-    Color: white;
+    color: white;
 }
 
 .city-btn {
@@ -47,17 +51,11 @@ body {
     cursor: pointer;
     font-size: 16px;
     transition: background-color 0.3s;
-    transition:  0.8s;
-
 }
 
 .city-btn:hover {
     background-color: #013872;
-    transition: padding  0.6s;
-    transition:   0.6s;
     padding: 15px;
-
-
 }
 
 .map-container {
@@ -86,8 +84,9 @@ body {
     color: #f01717;
     transition: 0.3s;
 }
+
 #city-details:hover {
-    width :100%;
+    width: 100%;
     padding: 1%;
     font-size: 16px;
     line-height: 1.5;
@@ -95,20 +94,21 @@ body {
     background-color: #dddddd1c;
     transition: 0.5s;
 }
+
+/* Marquee styling */
 .marquee-container {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%; /* Full width of the screen */
-    height: 40px; /* Adjust as needed */
+    width: 100%;
+    height: 40px;
     background-color: #f1f1f1;
-    overflow: hidden; /* Hide text outside the container */
+    overflow: hidden;
     display: flex;
     align-items: center;
-    z-index: 9999; /* Ensure it's on top */
+    z-index: 9999;
 }
 
-/* Moving text */
 .marquee {
     display: inline-block;
     white-space: nowrap;
@@ -117,38 +117,39 @@ body {
     color: #333;
 }
 
-/* Animation keyframes for RTL (right-to-left) */
 @keyframes marquee-rtl {
     0% {
-        transform: translateX(-100%); /* Start off-screen on the left */
+        transform: translateX(-100%);
     }
     100% {
-        transform: translateX(100%); /* End off-screen on the right */
+        transform: translateX(100%);
     }
 }
 
-/* Animation keyframes for LTR (left-to-right) */
 @keyframes marquee-ltr {
     0% {
-        transform: translateX(100%); /* Start off-screen on the right */
+        transform: translateX(100%);
     }
     100% {
-        transform: translateX(-100%); /* End off-screen on the left */
+        transform: translateX(-100%);
     }
 }
+
+/* Footer Styling */
 .footer {
-    position: fixed; /* Always visible at the bottom */
+    position: fixed;
     bottom: 0;
     left: 0;
-    width: 100%; /* Stretches across the full screen */
-    background-color: #111111ad; /* Dark background */
-    color: #fff; /* White text */
-    z-index: 9999; /* High z-index to stay above other elements */
+    width: 100%;
+    background-color: #111111ad;
+    color: #fff;
+    z-index: 9999;
     padding: 10px 0;
     font-family: Arial, sans-serif;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for separation */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
 }
 
+/* Footer Container */
 .footer-container {
     display: flex;
     justify-content: space-between;
@@ -158,24 +159,18 @@ body {
     padding: 0 20px;
 }
 
-.footer-left{ 
-      flex: 1;
-    margin-left: 15%
-}
-.footer-center{ 
-      flex: 1;
-    margin: 0 5%;
-}
+/* Footer sections */
+.footer-left,
+.footer-center,
 .footer-right {
     flex: 1;
-    margin-right: 15%;
+    margin: 0 10px;
 }
 
 .footer-left h3,
 .footer-right h3 {
     font-size: 16px;
     margin-bottom: 1%;
-    margin-top: 1%;
 }
 
 .footer-left p,
@@ -186,13 +181,13 @@ body {
     line-height: 1.6;
 }
 
+/* Centered footer text */
 .footer-center {
     text-align: center;
 }
 
 .footer-right a {
-    color: #4caf50; /* Highlighted link color */
-    
+    color: #4caf50;
     text-decoration: none;
 }
 
@@ -200,14 +195,30 @@ body {
     text-decoration: underline;
 }
 
-/* Responsiveness */
+/* Mobile Adjustments */
 @media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr; /* Stack content on top of each other */
+        height: auto; /* Adjust height for better mobile visibility */
+    }
+
+    .left-bar,
+    .right-bar {
+        padding: 10px;
+    }
+
     .footer-container {
         flex-direction: column;
         text-align: center;
     }
 
-    .footer-left, .footer-center, .footer-right {
-        margin: 5% 0;
+    .footer-left,
+    .footer-center,
+    .footer-right {
+        margin: 10px 0;
+    }
+
+    .marquee {
+        font-size: 14px; /* Smaller text on mobile */
     }
 }
