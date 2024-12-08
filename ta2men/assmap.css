@@ -198,9 +198,13 @@ body {
 /* Responsiveness */
 @media (min-width: 481px) and (max-width: 768px){
     .left-bar, .right-bar {
-        width: fit-content;
-        padding: 2%;
        
+        padding: 0px;
+        display: contents;
+        flex-direction: unset;
+        align-items: center;
+        overflow-y: hidden;
+        min-height: 0%;
     }
     .right-bar h3 {
         
