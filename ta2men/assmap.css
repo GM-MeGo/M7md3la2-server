@@ -197,6 +197,11 @@ body {
 
 /* Responsiveness */
 @media (min-width: 481px) and (max-width: 768px){
+    .left-bar, .right-bar {
+  
+        padding: 2%;
+       
+    }
     .right-bar h3 {
         
         font-size: 7px;
