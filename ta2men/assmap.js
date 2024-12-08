@@ -38,3 +38,34 @@ cityButtons.forEach(button => {
         }
     });
 });
+const marqueeElement = document.getElementById("marquee");
+
+// Texts with their respective directions
+const texts = [
+    { text: "سيرفر خاص بمحمد علاء الدين كمال اهداء إلى إدارة المعلومات والتوثيق والحاسب الآلي", direction: "rtl" },
+    { text: "Dedicated server by Mohamed Alaa Eldin Kamal, presented to the Information and Documentation Management and IT Department", direction: "ltr" }
+];
+
+let currentIndex = 0;
+
+// Function to update the marquee content and animation
+function updateMarquee() {
+    const { text, direction } = texts[currentIndex];
+
+    // Set text content and direction
+    marqueeElement.textContent = text;
+    if (direction === "rtl") {
+        marqueeElement.style.animation = "marquee-rtl 15s linear infinite";
+        marqueeElement.style.textAlign = "left";
+    } else {
+        marqueeElement.style.animation = "marquee-ltr 15s linear infinite";
+        marqueeElement.style.textAlign = "right";
+    }
+
+    // Cycle to the next text after the animation ends
+    currentIndex = (currentIndex + 1) % texts.length;
+    setTimeout(updateMarquee, 15000); // Matches the animation duration (15s)
+}
+
+// Start alternating marquee
+updateMarquee();
