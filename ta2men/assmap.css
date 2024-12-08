@@ -196,7 +196,7 @@ body {
 }
 
 /* Responsiveness */
-@media (max-width: 768px) {
+@media (min-width: 481px) and (max-width: 768px){
     .city-btn {
         width: 100%;
         margin: 10px 0;
@@ -228,7 +228,7 @@ body {
     }
 
     .map-container {
-       text-algin:center;
+       
         height: 100%; /* Adjust to make the image smaller on smaller screens */
     }
 }
