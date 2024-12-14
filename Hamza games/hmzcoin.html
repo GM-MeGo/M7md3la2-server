@@ -13,15 +13,27 @@
       <p>النقاط: <span id="score">0</span></p>
       <p>الوقت المتبقي: <span id="timer">30</span> ثانية</p>
     </div>
+    <h1>   المستوى الحالي :   <span id="current-level-display">1</span></h1>
+
     <div id="coins-area"></div>
     <div class="input-area">
       <label for="total">اكتب المجموع:</label>
-      <input type="number" id="total" placeholder="0">
+      <input type="number" id="total" placeholder=" ">
       <button id="check-answer">تحقق</button>
     </div>
     <div id="result"></div>
   </div>
 
+  <!-- Modal -->
+  <div id="levelModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>تهانينا ! </h2>
+      <p>لقد وصلت إلى المستوى <span id="current-level"></span>.</p>
+      <button class="confirm">حسنــاً</button>
+    </div>
+  </div>
+ 
   <script src="hmzcoin.js"></script>
 </body>
 </html>
