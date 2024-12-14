@@ -59,11 +59,7 @@ h1 {
   margin-bottom: 20px;
 }
 
-#coins-area img {
-  margin: 5px;
-  width: 25%;
-  height: 170px;
-}
+
 
 .input-area {
   margin-bottom: 20px;
@@ -196,9 +192,15 @@ button:disabled {
     
 }
 
-#coins-area img {
-  margin: 5px;
-  width: 10%;
-  height: 50px;
-}
+
+  .small-coin {
+    width: 5%;
+    height: 40px;
+  }
+  
+  .large-coin {
+    width: 25%;
+    height: 70px;
+  }
+
 }
