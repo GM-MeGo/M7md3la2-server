@@ -195,12 +195,12 @@ button:disabled {
 
   .small-coin {
     width: 5%;
-    height: 40px;
+    height: 5%;
   }
   
   .large-coin {
-    width: 25%;
-    height: 70px;
+    width: 30%;
+    height: 10%;
   }
 
 }
