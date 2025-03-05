@@ -26,7 +26,7 @@ document.getElementById("quality").addEventListener("input", function() {
 
 function compressImage() {
     if (!selectedFile) {
-        alert("Please select an image first.");
+        alert("من فضلك إختار الصورة أولاً  !!.");
         return;
     }
 
