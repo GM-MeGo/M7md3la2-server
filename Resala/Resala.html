@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خاص بمعمل رسالة </title>
+    <link rel="stylesheet" href="Hamza/Wateen.css">
+    <link rel="stylesheet" href="Hamza.css">
+</head>
+<body>
+
+    
+    <div id="landing" class="section">
+        <h1>مر حبا بكم في برنامج صغط الملفات</h1>
+        <h2>هذا البرنامج خاص بمعمل رسالة بأسيوط</h2>
+        <button onclick="showSection('login')"> تسجيل الدخول</button>
+    </div>
+
+ 
+    <div id="login" class="section hidden">
+        <h2>تسجيل الدخول</h2>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="login()">دخول</button>
+    </div>
+
+    
+    <div id="home" class="section hidden">
+        <h1>مرحبا معمل رسالة !!</h1>
+        <div class="click-box" onclick="showSection('compressor')">
+            لضغط الصور 
+            <br>
+            اضغط هنا
+        </div>
+    </div>
+
+   
+    <div id="compressor" class="section hidden">
+     
+
+    <input type="file" id="upload" accept="image/*">
+    <div class="container">
+        <div>
+            <h3>الصورة الأصلية </h3>
+            <img id="originalImg" src="" alt="Original Image">
+            <p>الحجم الأصلي : <span id="originalSize"> ... </span> </p>
+        </div>
+        <div>
+            <h3> الصورة المعدلة</h3>
+            <img id="compressedImg" src="" alt="Compressed Image">
+            <p> الحجم بعد الضغط: <span id="expectedSize"> ... </span> </p>
+            <p>نسبة الضغط : <span id="compressionPercent">0</span>%</p>
+            <button id="downloadBtn" class="btn" style="display: none;" onclick="downloadImage()">إستلام الصورة</button>
+        </div>
+    </div>
+    
+    <div class="slider-container">
+        <label for="quality">مستوي الضغط : </label>
+        <input type="range" id="quality" min="0" max="100" step="1" value="0">
+        <span id="qualityValue">0%</span>
+        <br>
+        <button class="btn" onclick="compressImage()">بدء الضغط</button>
+    </div>
+    </div>
+
+    <script src="Wateen/Hamza.js"></script>
+    <script src="Hamza.js"></script>
+
+</body>
+</html>

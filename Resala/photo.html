@@ -55,12 +55,12 @@
         <div>
             <h3>Original Image</h3>
             <img id="originalImg" src="" alt="Original Image">
-            <p>Original Size: <span id="originalSize">?</span> KB</p>
+            <p>Original Size: <span id="originalSize">?</span> </p>
         </div>
         <div>
             <h3>Compressed Image</h3>
             <img id="compressedImg" src="" alt="Compressed Image">
-            <p>Expected Size: <span id="expectedSize">?</span> KB</p>
+            <p>Expected Size: <span id="expectedSize">?</span> </p>
             <p>Compression: <span id="compressionPercent">0</span>%</p>
             <button id="downloadBtn" class="btn" style="display: none;" onclick="downloadImage()">Download</button>
         </div>
@@ -136,6 +136,13 @@
                 }, "image/jpeg", quality);
             };
         };
+    }
+    function downloadImage() {
+        const downloadBtn = document.getElementById("downloadBtn");
+        const link = document.createElement("a");
+        link.href = downloadBtn.getAttribute("data-url");
+        link.download = "mrMeGo4Resala_image.jpg";
+        link.click();
     }
 </script>
 
