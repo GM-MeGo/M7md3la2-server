@@ -2,10 +2,13 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     background: #f4f4f4;
+    justify-content: center;
+    flex-direction: column;
+    direction: rtl;
 }
 
 .section {
-    display: block; /* Hide all sections by default */
+    display: block; 
     margin-top: 100px;
 }
 
@@ -41,4 +44,3 @@ button:hover {
     background-color: #007bff;
     color: white;
 }
-
