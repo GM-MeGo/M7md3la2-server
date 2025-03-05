@@ -22,7 +22,8 @@ function login() {
     }
 
     else {
-        alert("Invalid login. Try again.");
+        alert("خطا في التسجيل حاول مرة اخري !!.");
+        alert("أسم المستخدم أو كلمة المرور خاظئة");
     }
 }
 
@@ -30,4 +31,3 @@ function login() {
 function compressImage() {
     alert("Image compressed successfully!");
 }
-
