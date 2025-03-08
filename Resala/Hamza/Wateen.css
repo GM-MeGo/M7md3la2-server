@@ -38,8 +38,12 @@ button:hover {
     border-radius: 5px;
     cursor: pointer;
     font-size: 18px;
+   
 }
-
+.flex{
+    display: flex; /* Makes the child divs appear in a row */
+    gap: 10px; /* Adds spacing between divs */
+}
 .click-box:hover {
     background-color: #007bff;
     color: white;
