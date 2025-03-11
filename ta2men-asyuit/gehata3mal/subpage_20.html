@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> جهات اعمال خاصة  </title>
+    <link rel="stylesheet" href="/barcss">
+    <link rel="stylesheet" href="/devicecss">
+
+</head>
+<header class="container" style="direction: rtl;"> 
+    <div id="welcome">
+        <h1>مرحبا يا <span id="usernamewelcome" ></span> !</h1>
+        <p>نحن نتمني لك يوم سعيد !!</p>
+        <button onclick="logout()">خروج</button>
+      </div>
+      
+      
+</header>
+<style>
+    .close{
+        direction: ltr;
+    }
+ /* تحسين مظهر الهيدر */
+.container {
+    background: rgba(59, 57, 57, 0.6); /* خلفية داكنة شفافة */
+    backdrop-filter: blur(10px); /* تأثير الزجاج */
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+    margin: 20px auto;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    direction: rtl;
+}
+
+/* تحسين النصوص */
+.container h1 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.container p {
+    font-size: 18px;
+    color: #dddddd;
+    margin-bottom: 20px;
+}
+
+/* تحسين زر الخروج */
+.container button {
+    background: linear-gradient(45deg, #ff416c, #ff4b2b);
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.container button:hover {
+    background: linear-gradient(45deg, #ff4b2b, #ff416c);
+    transform: scale(1.05);
+}
+
+/* تحسين مظهر اسم المستخدم */
+#usernamewelcome {
+    color: #ffcc00;
+    font-weight: bold;
+}
+
+</style>
+<body>
+
+    <div class="sidebar">
+        <span class="close-btn" id="closeSidebar">&times;</span>
+        <div id="menuContainer"></div>
+       
+    </div>
+    
+    <span class="menu-toggle" id="openSidebar">&#9776;</span>
+
+
+
+
+
+<div  id="mainContent">
+<header> 
+      <button onclick="logout()" hidden>خروج</button>
+      <h1>جدول جهات الأعمال بأسيوط</h1>
+</header>
+
+  
+
+  <!-- Search Input -->
+   <div style="border: 1px ; border-color: rgba(0, 0, 0, 0.493); background-color: rgba(2, 104, 163, 0.301);">
+    <div> 
+    <input type="text" id="searchInput" placeholder="البحث ...." onkeyup="filterTable()" style="margin: 3% 10% 0% 0%">
+    <label><input type="checkbox" class="columnFilter" value="0" checked> كود المنشأة</label>
+    <label><input type="checkbox" class="columnFilter" value="1" checked> اسم الجهة</label>
+    <label><input type="checkbox" class="columnFilter" value="2" checked> المحافظة / المركز</label>
+    <p style="margin: 1% 10% 0% 0%">إجمالي الجهات: <span id="totalCount">0</span></p>
+
+
+  </div>
+  <div  style="text-align: center; padding: 0; padding-bottom: 1%;">
+  <button id="createBtn">إضافة جهه</button>
+
+  </div>
+
+   </div>
+  <!-- Modal for Creating/Editing Device -->
+  <div id="deviceModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="modalTitle">إضافة جهه جديدة</h2>
+      <form id="deviceForm">
+         <!-- Device Type (Dropdown) -->
+         <label for="kood"> كود المنشأه</label>
+         <input type="text" id="kood" name="kood" required>   
+        
+
+         <!-- Serial Number -->
+         <label for="asm">أسم الجهه </label>
+         <input type="text" id="asm" name="asm" required>
+
+        <!-- Main Place -->
+        <label for="markaz">محافظة او مركز</label>
+        <input type="text" id="markaz" name="markaz" required>
+
+      
+      
+     
+
+      
+
+       
+
+        <button type="submit" id="submitBtn">حفظ</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Table for Devices -->
+  <table id="deviceTable">
+    <thead>
+      <tr>
+        <th>كود المنشأه </th>
+        <th> أسم الجهه</th>
+        <th>محافظة او مركز</th>
+
+        <th>تعديل / حذف</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Rows will be dynamically added here -->
+    </tbody>
+  </table>
+  <script src="/gehatjs"> </script> 
+  <script src="/barjs"> </script> 
+  <script src="/homejs"> </script> 
+ 
+  <script>
+      const normalizeArabic = (text) => {
+    return text.replace(/ة/g, "ه").toLowerCase().trim(); 
+};
+const updateTotalCount = () => {
+    const rows = document.querySelectorAll('#deviceTable tbody tr');
+    const visibleRows = Array.from(rows).filter(row => row.style.display !== 'none');
+    document.getElementById('totalCount').textContent = visibleRows.length;
+};
+
+// استدعاء الدالة عند تحميل الصفحة
+document.addEventListener('DOMContentLoaded', updateTotalCount);
+
+// تعديل دالة البحث لتحديث العدد بعد التصفية
+const filterTable = () => {
+    const searchInput = document.getElementById('searchInput');
+    const filter = normalizeArabic(searchInput.value);
+    const rows = document.querySelectorAll('#deviceTable tbody tr');
+    const checkedColumns = Array.from(document.querySelectorAll('.columnFilter:checked'))
+                               .map(cb => parseInt(cb.value));
+
+    rows.forEach(row => {
+        const cells = row.getElementsByTagName('td');
+        let match = false;
+
+        checkedColumns.forEach(colIndex => {
+            if (cells[colIndex]) {
+                const cellText = normalizeArabic(cells[colIndex].textContent);
+                if (cellText.includes(filter)) {
+                    match = true;
+                }
+            }
+        });
+
+        row.style.display = match ? '' : 'none';
+    });
+
+    updateTotalCount(); // تحديث العدد بعد البحث
+};
+
+
+    </script>
+</body>
+</html>
